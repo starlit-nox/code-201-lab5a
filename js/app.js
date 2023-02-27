@@ -1,7 +1,7 @@
 'use strict';
 
 //* Problem 1 (this is your demo that we'll solve in class)
-W//rite a function called sum() that takes in two numbers as arguments and then returns an array where the first element is the sum of those numbers, and the second element is a concatenated string that EXACTLY follows this example and uses the values that were input into the function:
+//rite a function called sum() that takes in two numbers as arguments and then returns an array where the first element is the sum of those numbers, and the second element is a concatenated string that EXACTLY follows this example and uses the values that were input into the function:
 
 //"The sum of 4 and 7 is 11."
 
@@ -9,8 +9,12 @@ W//rite a function called sum() that takes in two numbers as arguments and then 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-    return (`The sum of ${a} and ${b} is ${a + b}.`);
+    let c = a + b;
+    let sumAr = [c, `The sum of ${a} and ${b} is ${c}.`]
+    console.log(sumAr);
+    return sumAr
 }
+sum(4, 7);
 
 // Here is the test for sum(); uncomment it to run it
 testSum(4, 7);
@@ -27,12 +31,17 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
-    return (`The product of ${a} and ${b} is ${a * b}.`)
+
+    let c = a * b;
+    let multAr = [c, `The product of ${a} and ${b} is ${c}.`]
+console.log(multAr);
+    return multAr
 
 }
+multiply(5,9);
 
 // Here is the test for multiply(); uncomment it to run it
-// testMultiply(5,9);
+testMultiply(5,9);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -48,12 +57,28 @@ IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this funct
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
 // Write your code here
-function sumAndMultiply(a, b, c) { //eslint-disable-line
+// function sumAndMultiply(a, b, c) { //eslint-disable-line
+//     return (`${a} and ${b} and ${c} sum to ${a + b + c}.`);
+// }
+// return (`The product of ${a} and ${b} and ${c} is ${a * b * c}.`)
 
+function sumAndMultiply(a, b, c){
+    let sum1 = sum(a, b)[0];
+    let sum2 = sum(sum1, c)[0];
+    let mult1 = multiply(a, b)[0];
+    let mult2 = multiply(mult1, c)[0];
+
+    let ansAr = [sum2, mult2, `${a} and ${b} and ${c} sum to ${sum2}.`, `The product of ${a} and ${b} and ${c} is ${mult2}.`]
+
+    return ansAr;
+
+    // console.log(ansAr);
 }
+    sumAndMultiply(4,7,5);
+
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
